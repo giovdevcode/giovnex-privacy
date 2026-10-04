@@ -3,17 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Giovnex — Privacy & Transparency</title>
+    <title>Giovnex — Privacy & Security Center</title>
     <style>
         :root {
-            --bg-base: #0a0c10;
-            --card-bg: rgba(18, 21, 28, 0.72);
+            --bg-base: #07090e;
+            --card-bg: rgba(16, 20, 29, 0.75);
             --card-border: rgba(255, 255, 255, 0.08);
+            --card-border-glow: rgba(0, 242, 254, 0.35);
             --accent-cyan: #00f2fe;
             --accent-blue: #4facfe;
-            --text-main: #f4f4f6;
+            --text-main: #f4f4f7;
             --text-sub: #9ca3af;
-            --shadow-3d: 0 20px 40px -15px rgba(0, 0, 0, 0.7), 0 0 25px -5px rgba(0, 242, 254, 0.12);
+            --shadow-3d: 0 25px 50px -12px rgba(0, 0, 0, 0.8), 0 0 30px -5px rgba(0, 242, 254, 0.15);
+        }
+
+        html {
+            scroll-behavior: smooth;
+            -webkit-overflow-scrolling: touch;
         }
 
         * {
@@ -30,59 +36,122 @@
             padding: 40px 16px;
             perspective: 1200px;
             overflow-x: hidden;
-            background-image: 
-                radial-gradient(circle at 15% 15%, rgba(79, 172, 254, 0.08) 0%, transparent 40%),
-                radial-gradient(circle at 85% 75%, rgba(0, 242, 254, 0.06) 0%, transparent 45%);
+            position: relative;
+            min-height: 100vh;
+        }
+
+        /* Live Animated Background Spheres (Hardware Accelerated) */
+        .ambient-orb {
+            position: fixed;
+            border-radius: 50%;
+            filter: blur(90px);
+            pointer-events: none;
+            z-index: 0;
+            will-change: transform;
+            transform: translateZ(0);
+        }
+
+        .orb-1 {
+            width: 380px;
+            height: 380px;
+            background: radial-gradient(circle, rgba(0, 242, 254, 0.14) 0%, rgba(79, 172, 254, 0.03) 70%, transparent 100%);
+            top: -50px;
+            left: -80px;
+            animation: floatGlow1 16s infinite alternate ease-in-out;
+        }
+
+        .orb-2 {
+            width: 440px;
+            height: 440px;
+            background: radial-gradient(circle, rgba(79, 172, 254, 0.12) 0%, rgba(0, 242, 254, 0.02) 70%, transparent 100%);
+            bottom: 5%;
+            right: -100px;
+            animation: floatGlow2 20s infinite alternate ease-in-out;
+        }
+
+        .orb-3 {
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, rgba(0, 242, 254, 0.08) 0%, transparent 70%);
+            top: 45%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            animation: pulseGlow 12s infinite alternate ease-in-out;
+        }
+
+        @keyframes floatGlow1 {
+            0% { transform: translate3d(0, 0, 0) scale(1); }
+            100% { transform: translate3d(80px, 120px, 0) scale(1.15); }
+        }
+
+        @keyframes floatGlow2 {
+            0% { transform: translate3d(0, 0, 0) scale(1); }
+            100% { transform: translate3d(-100px, -90px, 0) scale(1.2); }
+        }
+
+        @keyframes pulseGlow {
+            0% { opacity: 0.4; transform: translate(-50%, -50%) scale(0.9); }
+            100% { opacity: 0.9; transform: translate(-50%, -50%) scale(1.15); }
         }
 
         .container {
             max-width: 860px;
             margin: 0 auto;
+            position: relative;
+            z-index: 1;
         }
 
         /* 3D Floating Header Card */
         .hero-card {
-            background: linear-gradient(135deg, rgba(25, 30, 42, 0.85), rgba(14, 17, 24, 0.85));
-            backdrop-filter: blur(20px);
+            background: linear-gradient(145deg, rgba(22, 27, 39, 0.88), rgba(12, 15, 22, 0.88));
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
             border: 1px solid var(--card-border);
-            border-radius: 24px;
-            padding: 40px 32px;
+            border-radius: 28px;
+            padding: 44px 32px;
             text-align: center;
             box-shadow: var(--shadow-3d);
-            transform: translateZ(15px);
+            transform: translate3d(0, 0, 20px);
             position: relative;
-            margin-bottom: 30px;
+            margin-bottom: 32px;
+            transition: transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1), border-color 0.3s ease;
+        }
+
+        .hero-card:hover {
+            border-color: var(--card-border-glow);
+            transform: translate3d(0, -4px, 25px);
         }
 
         .app-badge {
             display: inline-flex;
             align-items: center;
-            padding: 6px 16px;
-            background: linear-gradient(135deg, rgba(0, 242, 254, 0.15), rgba(79, 172, 254, 0.15));
-            border: 1px solid rgba(0, 242, 254, 0.3);
+            padding: 7px 18px;
+            background: linear-gradient(135deg, rgba(0, 242, 254, 0.16), rgba(79, 172, 254, 0.16));
+            border: 1px solid rgba(0, 242, 254, 0.35);
             border-radius: 999px;
             font-size: 12px;
             font-weight: 700;
             color: var(--accent-cyan);
             letter-spacing: 1.5px;
             text-transform: uppercase;
-            box-shadow: 0 4px 15px rgba(0, 242, 254, 0.2);
-            margin-bottom: 16px;
+            box-shadow: 0 4px 20px rgba(0, 242, 254, 0.25);
+            margin-bottom: 18px;
         }
 
         h1 {
-            font-size: 34px;
+            font-size: 38px;
             font-weight: 800;
-            background: linear-gradient(135deg, #ffffff 40%, var(--accent-cyan));
+            background: linear-gradient(135deg, #ffffff 45%, var(--accent-cyan));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             margin-bottom: 8px;
+            letter-spacing: -0.5px;
         }
 
         .developer-tag {
             color: var(--text-sub);
             font-size: 15px;
-            margin-bottom: 24px;
+            margin-bottom: 26px;
         }
 
         .developer-name {
@@ -90,7 +159,7 @@
             font-weight: 600;
         }
 
-        /* Social / Community Links with 3D Hover */
+        /* 3D Interactive Social & Contact Buttons */
         .social-row {
             display: flex;
             justify-content: center;
@@ -104,71 +173,81 @@
             align-items: center;
             text-decoration: none;
             background: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.12);
             color: var(--text-main);
-            padding: 10px 22px;
-            border-radius: 12px;
-            font-size: 13.5px;
+            padding: 12px 24px;
+            border-radius: 14px;
+            font-size: 14px;
             font-weight: 600;
             letter-spacing: 0.3px;
             transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.4);
+            transform: translateZ(0);
+        }
+
+        .social-btn.primary {
+            background: linear-gradient(135deg, rgba(0, 242, 254, 0.18), rgba(79, 172, 254, 0.25));
+            border-color: rgba(0, 242, 254, 0.4);
+            color: #ffffff;
         }
 
         .social-btn.facebook {
-            background: linear-gradient(135deg, rgba(24, 119, 242, 0.2), rgba(24, 119, 242, 0.35));
+            background: linear-gradient(135deg, rgba(24, 119, 242, 0.18), rgba(24, 119, 242, 0.32));
             border-color: rgba(24, 119, 242, 0.4);
             color: #70b4ff;
         }
 
         .social-btn:hover {
             transform: translateY(-4px) scale(1.04);
-            box-shadow: 0 10px 25px -5px rgba(0, 242, 254, 0.3);
+            box-shadow: 0 12px 28px -5px rgba(0, 242, 254, 0.35);
             border-color: var(--accent-cyan);
             color: #ffffff;
         }
 
-        /* Section Cards */
+        /* High-End 3D Section Cards */
         .section-card {
             background: var(--card-bg);
-            backdrop-filter: blur(16px);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
             border: 1px solid var(--card-border);
-            border-radius: 20px;
-            padding: 32px;
+            border-radius: 22px;
+            padding: 34px;
             margin-bottom: 24px;
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
-            transition: transform 0.25s ease, border-color 0.25s ease;
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.45);
+            transition: transform 0.3s cubic-bezier(0.2, 0.8, 0.2, 1), border-color 0.3s ease, box-shadow 0.3s ease;
+            transform: translateZ(0);
         }
 
         .section-card:hover {
-            border-color: rgba(0, 242, 254, 0.3);
-            transform: translateY(-2px);
+            border-color: var(--card-border-glow);
+            transform: translateY(-3px);
+            box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.6), 0 0 20px rgba(0, 242, 254, 0.1);
         }
 
         h2 {
-            font-size: 20px;
+            font-size: 21px;
             font-weight: 700;
             color: #ffffff;
             display: flex;
             align-items: center;
             gap: 14px;
-            margin-bottom: 16px;
+            margin-bottom: 18px;
         }
 
-        /* Numbered Minimalist Badge replacing emojis */
+        /* Numbered 3D Badge */
         .num-badge {
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            width: 32px;
-            height: 32px;
-            background: linear-gradient(135deg, rgba(0, 242, 254, 0.15), rgba(79, 172, 254, 0.15));
-            border: 1px solid rgba(0, 242, 254, 0.3);
-            border-radius: 8px;
+            width: 34px;
+            height: 34px;
+            background: linear-gradient(135deg, rgba(0, 242, 254, 0.18), rgba(79, 172, 254, 0.18));
+            border: 1px solid rgba(0, 242, 254, 0.35);
+            border-radius: 10px;
             color: var(--accent-cyan);
-            font-size: 13px;
+            font-size: 13.5px;
             font-weight: 700;
-            letter-spacing: 0.5px;
+            box-shadow: 0 4px 12px rgba(0, 242, 254, 0.2);
         }
 
         p {
@@ -184,7 +263,7 @@
 
         li {
             position: relative;
-            padding-left: 20px;
+            padding-left: 22px;
             color: #d1d5db;
             font-size: 14.5px;
             margin-bottom: 12px;
@@ -199,62 +278,69 @@
             height: 6px;
             border-radius: 50%;
             background: var(--accent-cyan);
-            box-shadow: 0 0 8px var(--accent-cyan);
+            box-shadow: 0 0 10px var(--accent-cyan);
         }
 
-        /* Highlight Box */
+        /* 3D Highlight Box */
         .highlight-box {
-            background: linear-gradient(135deg, rgba(0, 242, 254, 0.05), rgba(79, 172, 254, 0.03));
+            background: linear-gradient(135deg, rgba(0, 242, 254, 0.07), rgba(79, 172, 254, 0.04));
             border-left: 4px solid var(--accent-cyan);
-            border-radius: 12px;
-            padding: 16px 20px;
-            margin: 16px 0;
+            border-radius: 14px;
+            padding: 18px 22px;
+            margin: 18px 0;
             color: #e5e7eb;
-            font-size: 14px;
+            font-size: 14.5px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.25);
         }
 
         footer {
             text-align: center;
-            padding: 30px 0 10px;
+            padding: 34px 0 10px;
             color: #6b7280;
             font-size: 13px;
         }
 
         @media (max-width: 640px) {
             body { padding: 20px 12px; }
-            .hero-card { padding: 30px 20px; }
-            h1 { font-size: 26px; }
-            .section-card { padding: 24px 18px; }
+            .hero-card { padding: 32px 18px; }
+            h1 { font-size: 28px; }
+            .section-card { padding: 24px 16px; }
+            .social-btn { width: 100%; justify-content: center; }
         }
     </style>
 </head>
 <body>
 
+<!-- Live Animated Ambient Background Spheres -->
+<div class="ambient-orb orb-1"></div>
+<div class="ambient-orb orb-2"></div>
+<div class="ambient-orb orb-3"></div>
+
 <div class="container">
 
-    <!-- 3D Header & Developer Profile -->
+    <!-- 3D Header Card -->
     <div class="hero-card">
-        <div class="app-badge">Official Security & Privacy</div>
+        <div class="app-badge">Official Security & Transparency</div>
         <h1>Giovnex</h1>
         <p class="developer-tag">
-            Developed & Managed by <span class="developer-name">[Giovnex]</span>
+            Developed & Maintained by <span class="developer-name">GiovDev (Independent Developer)</span>
         </p>
 
-        <!-- Social & Community Links -->
+        <!-- Interactive 3D Action Buttons -->
         <div class="social-row">
-            <a href="https://www.facebook.com/share/1Hz8WRRAB3/" target="_blank" class="social-btn facebook">
+            <a href="mailto:giovnex.app@gmail.com?subject=Giovnex%20Inquiry" class="social-btn primary">
+                Contact: giovnex.app@gmail.com
+            </a>
+            <a href="https://facebook.com/your-facebook-page" target="_blank" class="social-btn facebook">
                 Facebook Page
             </a>
-            <a href="giovnex.app@gmail.com" class="social-btn">
-                Contact Developer
-            </a>
             <a href="https://github.com/giovdevcode" target="_blank" class="social-btn">
-                GitHub Repository
+                GitHub: giovdevcode
             </a>
         </div>
     </div>
 
-    <!-- Section 1: Overview -->
+    <!-- Section 01 -->
     <div class="section-card">
         <h2><span class="num-badge">01</span> Privacy Commitment</h2>
         <p>Giovnex is engineered with an uncompromising approach toward user transparency and digital security. This policy outlines how information is handled to ensure optimal browser speed, high-performance media playback, and responsive artificial intelligence features.</p>
@@ -263,7 +349,7 @@
         </div>
     </div>
 
-    <!-- Section 2: Security & Telemetry -->
+    <!-- Section 02 -->
     <div class="section-card">
         <h2><span class="num-badge">02</span> App Integrity & Diagnostic Telemetry</h2>
         <p>To defend against malicious tampering and ensure smooth operation across diverse hardware configurations, Giovnex collects non-personal hardware metrics:</p>
@@ -275,7 +361,7 @@
         </ul>
     </div>
 
-    <!-- Section 3: AI & Voice Processing -->
+    <!-- Section 03 -->
     <div class="section-card">
         <h2><span class="num-badge">03</span> Intelligent AI & Voice Features</h2>
         <p>Giovnex incorporates high-performance language and image processing engines:</p>
@@ -286,7 +372,7 @@
         </ul>
     </div>
 
-    <!-- Section 4: Browser Engine & Local Data -->
+    <!-- Section 04 -->
     <div class="section-card">
         <h2><span class="num-badge">04</span> Web Browsing & Local Storage</h2>
         <p>Your web session data remains strictly under your control on your physical device:</p>
@@ -297,7 +383,7 @@
         </ul>
     </div>
 
-    <!-- Section 5: User Control & Purge -->
+    <!-- Section 05 -->
     <div class="section-card">
         <h2><span class="num-badge">05</span> Complete User Data Control</h2>
         <p>Giovnex provides an immediate, one-click mechanism to wipe your footprints:</p>
@@ -306,7 +392,7 @@
         </div>
     </div>
 
-    <!-- Section 6: Permissions -->
+    <!-- Section 06 -->
     <div class="section-card">
         <h2><span class="num-badge">06</span> Device Permissions</h2>
         <p>Giovnex requests specific permissions on an as-needed basis strictly to power user-initiated actions:</p>
@@ -318,22 +404,22 @@
         </ul>
     </div>
 
-    <!-- Section 7: Developer Contact -->
+    <!-- Section 07 -->
     <div class="section-card">
         <h2><span class="num-badge">07</span> Contact & Official Channels</h2>
         <p>If you have any questions, suggestions, or feature requests, feel free to reach out directly to the developer:</p>
         <ul>
-            <li><strong>Developer:</strong> [Giovnex]</li>
-            <li><strong>Email:</strong> giovnex.app@gmail.com</li>
+            <li><strong>Developer:</strong> GiovDev (Independent Developer)</li>
+            <li><strong>Official Contact Email:</strong> <a href="mailto:giovnex.app@gmail.com" style="color: var(--accent-cyan); text-decoration: none; font-weight: 600;">giovnex.app@gmail.com</a></li>
             <li><strong>Official Community:</strong> Visit our <a href="https://facebook.com/your-facebook-page" target="_blank" style="color: var(--accent-cyan); text-decoration: none;">Facebook Page</a> for announcements and updates.</li>
         </ul>
     </div>
 
     <footer>
-        &copy; 2026 Giovnex. Crafted by [Giovnex]. All rights reserved.
+        &copy; 2026 Giovnex. Crafted by GiovDev. All rights reserved.
     </footer>
 
 </div>
 
 </body>
-              </html>
+    </html>
