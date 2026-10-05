@@ -3,18 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Giovnex — Privacy & Security Center</title>
+    <title>Privacy Policy — Giovnex</title>
     <style>
         :root {
-            --bg-base: #07090e;
-            --card-bg: rgba(16, 20, 29, 0.75);
-            --card-border: rgba(255, 255, 255, 0.08);
-            --card-border-glow: rgba(0, 242, 254, 0.35);
+            --bg-base: #05070b;
+            --card-bg: rgba(13, 17, 26, 0.85);
+            --card-border: rgba(255, 255, 255, 0.09);
+            --card-border-glow: rgba(0, 242, 254, 0.4);
             --accent-cyan: #00f2fe;
             --accent-blue: #4facfe;
             --text-main: #f4f4f7;
             --text-sub: #9ca3af;
-            --shadow-3d: 0 25px 50px -12px rgba(0, 0, 0, 0.8), 0 0 30px -5px rgba(0, 242, 254, 0.15);
+            --text-muted: #6b7280;
+            --shadow-3d: 0 25px 50px -12px rgba(0, 0, 0, 0.85), 0 0 35px -5px rgba(0, 242, 254, 0.15);
         }
 
         html {
@@ -33,113 +34,112 @@
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
             background-color: var(--bg-base);
             color: var(--text-main);
-            line-height: 1.7;
+            line-height: 1.75;
             padding: 40px 16px;
             overflow-x: hidden;
             position: relative;
             min-height: 100vh;
         }
 
-        /* Live Animated Ambient Background Spheres */
-        .ambient-orb {
+        /* LIVE CINEMATIC NEURAL CANVAS */
+        #neural-canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            pointer-events: none;
+            z-index: 0;
+            opacity: 0.75;
+        }
+
+        /* Holographic Dot-Matrix Grid Overlay */
+        .cyber-grid {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background-image: radial-gradient(rgba(0, 242, 254, 0.08) 1px, transparent 1px);
+            background-size: 32px 32px;
+            pointer-events: none;
+            z-index: 1;
+            opacity: 0.6;
+        }
+
+        /* Ambient Color Radiance */
+        .ambient-glow {
             position: fixed;
             border-radius: 50%;
-            filter: blur(90px);
             pointer-events: none;
             z-index: 0;
             will-change: transform;
-            transform: translateZ(0);
+            transform: translate3d(0, 0, 0);
         }
-
-        .orb-1 {
-            width: 380px;
-            height: 380px;
-            background: radial-gradient(circle, rgba(0, 242, 254, 0.14) 0%, rgba(79, 172, 254, 0.03) 70%, transparent 100%);
-            top: -50px;
-            left: -80px;
-            animation: floatGlow1 16s infinite alternate ease-in-out;
+        .glow-1 {
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(0, 242, 254, 0.1) 0%, transparent 70%);
+            top: -100px;
+            left: -100px;
         }
-
-        .orb-2 {
-            width: 440px;
-            height: 440px;
-            background: radial-gradient(circle, rgba(79, 172, 254, 0.12) 0%, rgba(0, 242, 254, 0.02) 70%, transparent 100%);
-            bottom: 5%;
+        .glow-2 {
+            width: 550px;
+            height: 550px;
+            background: radial-gradient(circle, rgba(79, 172, 254, 0.08) 0%, transparent 70%);
+            bottom: 0;
             right: -100px;
-            animation: floatGlow2 20s infinite alternate ease-in-out;
-        }
-
-        .orb-3 {
-            width: 300px;
-            height: 300px;
-            background: radial-gradient(circle, rgba(0, 242, 254, 0.08) 0%, transparent 70%);
-            top: 45%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            animation: pulseGlow 12s infinite alternate ease-in-out;
-        }
-
-        @keyframes floatGlow1 {
-            0% { transform: translate3d(0, 0, 0) scale(1); }
-            100% { transform: translate3d(80px, 120px, 0) scale(1.15); }
-        }
-
-        @keyframes floatGlow2 {
-            0% { transform: translate3d(0, 0, 0) scale(1); }
-            100% { transform: translate3d(-100px, -90px, 0) scale(1.2); }
-        }
-
-        @keyframes pulseGlow {
-            0% { opacity: 0.4; transform: translate(-50%, -50%) scale(0.9); }
-            100% { opacity: 0.9; transform: translate(-50%, -50%) scale(1.15); }
         }
 
         .container {
-            max-width: 860px;
+            max-width: 880px;
             margin: 0 auto;
             position: relative;
-            z-index: 1;
+            z-index: 2;
         }
 
-        /* 3D Glass Header Card */
+        /* 3D FLOATING HEADER CARD */
         .hero-card {
-            background: linear-gradient(145deg, rgba(22, 27, 39, 0.92), rgba(12, 15, 22, 0.92));
-            backdrop-filter: blur(24px);
-            -webkit-backdrop-filter: blur(24px);
+            background: linear-gradient(145deg, rgba(18, 24, 38, 0.94), rgba(9, 13, 20, 0.94));
+            backdrop-filter: blur(28px);
+            -webkit-backdrop-filter: blur(28px);
             border: 1px solid var(--card-border);
-            border-radius: 28px;
-            padding: 44px 32px;
+            border-radius: 30px;
+            padding: 46px 34px;
             text-align: center;
             box-shadow: var(--shadow-3d);
             position: relative;
             margin-bottom: 32px;
-            transition: border-color 0.3s ease;
-        }
-
-        .hero-card:hover {
-            border-color: var(--card-border-glow);
+            contain: paint;
         }
 
         .app-badge {
             display: inline-flex;
             align-items: center;
-            padding: 7px 18px;
+            padding: 7px 20px;
             background: linear-gradient(135deg, rgba(0, 242, 254, 0.16), rgba(79, 172, 254, 0.16));
-            border: 1px solid rgba(0, 242, 254, 0.35);
+            border: 1px solid rgba(0, 242, 254, 0.4);
             border-radius: 999px;
             font-size: 12px;
             font-weight: 700;
             color: var(--accent-cyan);
             letter-spacing: 1.5px;
             text-transform: uppercase;
-            box-shadow: 0 4px 20px rgba(0, 242, 254, 0.25);
-            margin-bottom: 18px;
+            box-shadow: 0 4px 18px rgba(0, 242, 254, 0.2);
+            margin-bottom: 12px;
+        }
+
+        .effective-date {
+            font-size: 13px;
+            color: var(--text-sub);
+            margin-bottom: 16px;
+            letter-spacing: 0.5px;
         }
 
         h1 {
-            font-size: 38px;
-            font-weight: 800;
-            background: linear-gradient(135deg, #ffffff 45%, var(--accent-cyan));
+            font-size: 42px;
+            font-weight: 900;
+            background: linear-gradient(135deg, #ffffff 40%, var(--accent-cyan));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             margin-bottom: 8px;
@@ -149,20 +149,19 @@
         .developer-tag {
             color: var(--text-sub);
             font-size: 15px;
-            margin-bottom: 26px;
+            margin-bottom: 28px;
         }
 
         .developer-name {
             color: #ffffff;
-            font-weight: 600;
+            font-weight: 700;
         }
 
-        /* 10D MULTI-DIMENSIONAL QUANTUM-GLASS BUTTONS */
+        /* 120 FPS 10D HYPER-GLASS BUTTONS */
         .social-row {
             display: flex;
             flex-direction: column;
-            gap: 15px;
-            margin-top: 10px;
+            gap: 14px;
         }
 
         .social-btn {
@@ -182,15 +181,12 @@
             cursor: pointer;
             touch-action: manipulation;
             z-index: 10;
-            backdrop-filter: blur(16px);
-            -webkit-backdrop-filter: blur(16px);
-            transition: transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1),
-                        box-shadow 0.25s ease,
-                        border-color 0.25s ease,
-                        filter 0.2s ease;
+            will-change: transform;
+            transform: translate3d(0, 0, 0);
+            transition: transform 0.15s ease, filter 0.15s ease;
         }
 
-        /* Layer 3: Top Prismatic Glass Bevel Reflection */
+        /* Top Optical Bevel */
         .social-btn::before {
             content: "";
             position: absolute;
@@ -198,180 +194,123 @@
             left: 0;
             right: 0;
             height: 48%;
-            background: linear-gradient(180deg, rgba(255, 255, 255, 0.28) 0%, rgba(255, 255, 255, 0.03) 80%, transparent 100%);
+            background: linear-gradient(180deg, rgba(255, 255, 255, 0.22) 0%, rgba(255, 255, 255, 0.02) 80%, transparent 100%);
             border-radius: 17px 17px 0 0;
             pointer-events: none;
         }
 
-        /* Layer 4: Multi-Angle Temporal Quantum Light Sweep */
+        /* Hardware-Accelerated Quantum Laser Sheen */
         .social-btn::after {
             content: "";
             position: absolute;
-            top: -60%;
-            left: -160%;
-            width: 55%;
-            height: 220%;
+            top: -50%;
+            left: 0;
+            width: 45%;
+            height: 200%;
             background: linear-gradient(
                 75deg,
-                transparent 10%,
-                rgba(255, 255, 255, 0.08) 30%,
+                transparent 15%,
+                rgba(255, 255, 255, 0.08) 35%,
                 rgba(0, 242, 254, 0.35) 50%,
-                rgba(255, 255, 255, 0.25) 60%,
+                rgba(255, 255, 255, 0.22) 65%,
                 transparent 85%
             );
-            transform: rotate(22deg);
             pointer-events: none;
-            animation: quantumSheen 6.5s infinite ease-in-out;
+            will-change: transform;
+            transform: translate3d(-180%, 0, 0) rotate(22deg);
+            animation: gpuSheen 6s infinite cubic-bezier(0.4, 0, 0.2, 1);
         }
 
-        .social-btn:nth-child(2)::after { animation-delay: 1.6s; }
-        .social-btn:nth-child(3)::after { animation-delay: 3.2s; }
-        .social-btn:nth-child(4)::after { animation-delay: 4.8s; }
+        .social-btn:nth-child(2)::after { animation-delay: 1.5s; }
+        .social-btn:nth-child(3)::after { animation-delay: 3.0s; }
+        .social-btn:nth-child(4)::after { animation-delay: 4.5s; }
 
-        @keyframes quantumSheen {
-            0%, 65% { left: -160%; }
-            100% { left: 230%; }
+        @keyframes gpuSheen {
+            0%, 60% { transform: translate3d(-180%, 0, 0) rotate(22deg); }
+            100% { transform: translate3d(350%, 0, 0) rotate(22deg); }
         }
 
-        /* Multi-Tier Quantum Aura & Inset Horizon Shadows */
         .social-btn.primary {
-            background: linear-gradient(145deg, rgba(0, 242, 254, 0.26), rgba(79, 172, 254, 0.16));
+            background: linear-gradient(145deg, rgba(0, 242, 254, 0.26), rgba(79, 172, 254, 0.14));
             border: 1px solid rgba(0, 242, 254, 0.55);
-            box-shadow: 
-                0 12px 28px -4px rgba(0, 242, 254, 0.4),
-                0 4px 10px rgba(0, 0, 0, 0.7),
-                inset 0 1px 1px rgba(255, 255, 255, 0.4),
-                inset 0 -3px 10px rgba(0, 242, 254, 0.25);
+            box-shadow: 0 10px 24px -4px rgba(0, 242, 254, 0.35), 0 3px 8px rgba(0, 0, 0, 0.6), inset 0 1px 1px rgba(255, 255, 255, 0.35);
             color: #ffffff;
-            animation: pulseCyanAura 4s infinite alternate ease-in-out;
         }
 
         .social-btn.facebook {
-            background: linear-gradient(145deg, rgba(24, 119, 242, 0.28), rgba(24, 119, 242, 0.16));
+            background: linear-gradient(145deg, rgba(24, 119, 242, 0.28), rgba(24, 119, 242, 0.14));
             border: 1px solid rgba(24, 119, 242, 0.6);
-            box-shadow: 
-                0 12px 28px -4px rgba(24, 119, 242, 0.42),
-                0 4px 10px rgba(0, 0, 0, 0.7),
-                inset 0 1px 1px rgba(255, 255, 255, 0.35),
-                inset 0 -3px 10px rgba(24, 119, 242, 0.25);
+            box-shadow: 0 10px 24px -4px rgba(24, 119, 242, 0.38), 0 3px 8px rgba(0, 0, 0, 0.6), inset 0 1px 1px rgba(255, 255, 255, 0.3);
             color: #8bc3ff;
-            animation: pulseBlueAura 4s infinite alternate ease-in-out 1s;
         }
 
         .social-btn.telegram {
-            background: linear-gradient(145deg, rgba(0, 136, 204, 0.28), rgba(0, 136, 204, 0.16));
+            background: linear-gradient(145deg, rgba(0, 136, 204, 0.28), rgba(0, 136, 204, 0.14));
             border: 1px solid rgba(0, 136, 204, 0.6);
-            box-shadow: 
-                0 12px 28px -4px rgba(0, 136, 204, 0.42),
-                0 4px 10px rgba(0, 0, 0, 0.7),
-                inset 0 1px 1px rgba(255, 255, 255, 0.35),
-                inset 0 -3px 10px rgba(0, 136, 204, 0.25);
+            box-shadow: 0 10px 24px -4px rgba(0, 136, 204, 0.38), 0 3px 8px rgba(0, 0, 0, 0.6), inset 0 1px 1px rgba(255, 255, 255, 0.3);
             color: #60c1ff;
-            animation: pulseSkyAura 4s infinite alternate ease-in-out 2s;
         }
 
         .social-btn.github {
-            background: linear-gradient(145deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.03));
+            background: linear-gradient(145deg, rgba(255, 255, 255, 0.09), rgba(255, 255, 255, 0.02));
             border: 1px solid rgba(255, 255, 255, 0.2);
-            box-shadow: 
-                0 12px 28px -4px rgba(0, 0, 0, 0.8),
-                0 4px 10px rgba(0, 0, 0, 0.7),
-                inset 0 1px 1px rgba(255, 255, 255, 0.3),
-                inset 0 -3px 10px rgba(255, 255, 255, 0.05);
+            box-shadow: 0 10px 24px -4px rgba(0, 0, 0, 0.75), 0 3px 8px rgba(0, 0, 0, 0.6), inset 0 1px 1px rgba(255, 255, 255, 0.25);
             color: #f4f4f7;
         }
 
-        /* Subtle Breathing Aura Pulse */
-        @keyframes pulseCyanAura {
-            0% { box-shadow: 0 10px 24px -4px rgba(0, 242, 254, 0.35), 0 4px 10px rgba(0,0,0,0.7), inset 0 1px 1px rgba(255,255,255,0.4), inset 0 -3px 10px rgba(0,242,254,0.2); }
-            100% { box-shadow: 0 16px 36px -2px rgba(0, 242, 254, 0.55), 0 4px 10px rgba(0,0,0,0.7), inset 0 1px 1px rgba(255,255,255,0.5), inset 0 -3px 12px rgba(0,242,254,0.35); }
-        }
-
-        @keyframes pulseBlueAura {
-            0% { box-shadow: 0 10px 24px -4px rgba(24, 119, 242, 0.35), 0 4px 10px rgba(0,0,0,0.7), inset 0 1px 1px rgba(255,255,255,0.35), inset 0 -3px 10px rgba(24,119,242,0.2); }
-            100% { box-shadow: 0 16px 36px -2px rgba(24, 119, 242, 0.55), 0 4px 10px rgba(0,0,0,0.7), inset 0 1px 1px rgba(255,255,255,0.45), inset 0 -3px 12px rgba(24,119,242,0.35); }
-        }
-
-        @keyframes pulseSkyAura {
-            0% { box-shadow: 0 10px 24px -4px rgba(0, 136, 204, 0.35), 0 4px 10px rgba(0,0,0,0.7), inset 0 1px 1px rgba(255,255,255,0.35), inset 0 -3px 10px rgba(0,136,204,0.2); }
-            100% { box-shadow: 0 16px 36px -2px rgba(0, 136, 204, 0.55), 0 4px 10px rgba(0,0,0,0.7), inset 0 1px 1px rgba(255,255,255,0.45), inset 0 -3px 12px rgba(0,136,204,0.35); }
-        }
-
-        /* Desktop Hover Boost */
-        @media (hover: hover) and (pointer: fine) {
-            .social-btn:hover {
-                transform: translateY(-2px);
-                filter: brightness(1.2);
-            }
-            .social-btn.primary:hover {
-                border-color: var(--accent-cyan);
-            }
-            .social-btn.facebook:hover {
-                border-color: #5ea8ff;
-            }
-            .social-btn.telegram:hover {
-                border-color: #8adeff;
-            }
-            .social-btn.github:hover {
-                border-color: rgba(255, 255, 255, 0.45);
-            }
-        }
-
-        /* 10D Tactile Magnetic Spring Cushion on Press */
         .social-btn:active {
-            transform: scale(0.96) translateY(2px);
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.8) !important;
-            filter: brightness(1.3) contrast(1.1);
+            transform: scale(0.97) translate3d(0, 1px, 0);
+            filter: brightness(1.25);
         }
 
-        /* Section Cards */
+        /* LEGAL SECTION CARDS */
         .section-card {
             background: var(--card-bg);
             backdrop-filter: blur(20px);
             -webkit-backdrop-filter: blur(20px);
             border: 1px solid var(--card-border);
-            border-radius: 22px;
-            padding: 34px;
+            border-radius: 24px;
+            padding: 36px;
             margin-bottom: 24px;
-            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.45);
-            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 14px 32px rgba(0, 0, 0, 0.5);
+            contain: paint;
+            transition: border-color 0.3s ease;
         }
 
         .section-card:hover {
             border-color: var(--card-border-glow);
-            box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.6), 0 0 20px rgba(0, 242, 254, 0.1);
         }
 
         h2 {
-            font-size: 21px;
-            font-weight: 700;
+            font-size: 22px;
+            font-weight: 800;
             color: #ffffff;
             display: flex;
             align-items: center;
             gap: 14px;
-            margin-bottom: 18px;
+            margin-bottom: 20px;
         }
 
         .num-badge {
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            width: 34px;
-            height: 34px;
-            background: linear-gradient(135deg, rgba(0, 242, 254, 0.18), rgba(79, 172, 254, 0.18));
-            border: 1px solid rgba(0, 242, 254, 0.35);
-            border-radius: 10px;
+            width: 36px;
+            height: 36px;
+            background: linear-gradient(135deg, rgba(0, 242, 254, 0.2), rgba(79, 172, 254, 0.2));
+            border: 1px solid rgba(0, 242, 254, 0.4);
+            border-radius: 11px;
             color: var(--accent-cyan);
-            font-size: 13.5px;
-            font-weight: 700;
-            box-shadow: 0 4px 12px rgba(0, 242, 254, 0.2);
+            font-size: 14px;
+            font-weight: 800;
+            box-shadow: 0 4px 14px rgba(0, 242, 254, 0.25);
             flex-shrink: 0;
         }
 
         p {
             color: var(--text-sub);
             font-size: 15px;
-            margin-bottom: 14px;
+            margin-bottom: 16px;
         }
 
         ul {
@@ -381,17 +320,17 @@
 
         li {
             position: relative;
-            padding-left: 22px;
+            padding-left: 24px;
             color: #d1d5db;
             font-size: 14.5px;
-            margin-bottom: 12px;
+            margin-bottom: 14px;
         }
 
         li::before {
             content: "";
             position: absolute;
             left: 0;
-            top: 9px;
+            top: 10px;
             width: 6px;
             height: 6px;
             border-radius: 50%;
@@ -400,47 +339,57 @@
         }
 
         .highlight-box {
-            background: linear-gradient(135deg, rgba(0, 242, 254, 0.07), rgba(79, 172, 254, 0.04));
+            background: linear-gradient(135deg, rgba(0, 242, 254, 0.08), rgba(79, 172, 254, 0.04));
             border-left: 4px solid var(--accent-cyan);
             border-radius: 14px;
             padding: 18px 22px;
-            margin: 18px 0;
+            margin: 20px 0;
             color: #e5e7eb;
             font-size: 14.5px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.25);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
         }
 
         footer {
             text-align: center;
-            padding: 34px 0 10px;
-            color: #6b7280;
+            padding: 36px 0 14px;
+            color: var(--text-muted);
             font-size: 13px;
+            letter-spacing: 0.5px;
         }
 
         @media (max-width: 640px) {
             body { padding: 20px 12px; }
             .hero-card { padding: 32px 18px; }
-            h1 { font-size: 28px; }
+            h1 { font-size: 30px; }
             .section-card { padding: 24px 16px; }
         }
     </style>
 </head>
 <body>
 
-<div class="ambient-orb orb-1"></div>
-<div class="ambient-orb orb-2"></div>
-<div class="ambient-orb orb-3"></div>
+<!-- Live Animated Canvas: Neural Network Matrix -->
+<canvas id="neural-canvas"></canvas>
+
+<!-- Holographic Dot Matrix Grid -->
+<div class="cyber-grid"></div>
+
+<!-- Ambient Color Radiance -->
+<div class="ambient-glow glow-1"></div>
+<div class="ambient-glow glow-2"></div>
 
 <div class="container">
 
+    <!-- 3D Header Card -->
     <div class="hero-card">
-        <div class="app-badge">Official Security & Transparency</div>
+        <div class="app-badge">Official Privacy Policy</div>
+        <p class="effective-date">Effective Date: October 2026</p>
+
         <h1>Giovnex</h1>
         <p class="developer-tag">
             Developed & Maintained by <span class="developer-name">Giovane Bang-ay</span>
         </p>
 
-        <!-- 10D Quantum-Glass Action Buttons -->
+        <!-- 120 FPS 10D Quantum Action Buttons -->
         <div class="social-row">
             <a href="mailto:giovnex.app@gmail.com?subject=Giovnex%20Inquiry" class="social-btn primary">
                 Contact: giovnex.app@gmail.com
@@ -457,78 +406,84 @@
         </div>
     </div>
 
-    <!-- Section 01 -->
+    <!-- Section 01: Scope & Legal Basis -->
     <div class="section-card">
-        <h2><span class="num-badge">01</span> Privacy Commitment</h2>
-        <p>Giovnex is engineered with an uncompromising approach toward user transparency and digital security. This policy outlines how information is handled to ensure optimal browser speed, high-performance media playback, and responsive artificial intelligence features.</p>
+        <h2><span class="num-badge">01</span> Privacy Commitment & Scope</h2>
+        <p>This Privacy Policy governs the collection, processing, and protection of information by the <strong>Giovnex</strong> mobile application ("the Application"), developed and operated by <strong>Giovane Bang-ay</strong> ("the Developer"). Giovnex is engineered as an independent, high-performance browser and utility application designed with a foundational commitment to user data privacy.</p>
         <div class="highlight-box">
-            <strong>Core Guarantee:</strong> Giovnex never sells, rents, or monetizes personal browsing records, search history, or personal file contents.
+            <strong>Binding Guarantee:</strong> Giovnex does not sell, lease, commercialize, or trade personal browsing histories, search queries, or user file contents to third-party data brokers or marketing networks.
         </div>
     </div>
 
-    <!-- Section 02 -->
+    <!-- Section 02: Hardware Telemetry & Security Watchdog -->
     <div class="section-card">
-        <h2><span class="num-badge">02</span> App Integrity & Diagnostic Telemetry</h2>
-        <p>To defend against malicious tampering and ensure smooth operation across diverse hardware configurations, Giovnex collects non-personal hardware metrics:</p>
+        <h2><span class="num-badge">02</span> Telemetry, Diagnostics & Security Integrity</h2>
+        <p>To ensure application stability, diagnose system exceptions, and protect the application from unauthorized tampering or exploitation, Giovnex processes non-personal technical telemetry:</p>
         <ul>
-            <li><strong>Hardware Metrics:</strong> Device model, display resolution, RAM total, battery status, processor cores, and operating system build version.</li>
-            <li><strong>Security Watchdog:</strong> Checks runtime integrity (detecting emulated environments, unauthorized debugging, or package hijacking) to protect the application ecosystem.</li>
-            <li><strong>Diagnostic Error Logs:</strong> If a technical issue occurs, an anonymized diagnostic report is sent to our secure backend to quickly deploy bug fixes.</li>
-            <li><strong>Unique Instance ID:</strong> A randomly generated installation token (UUID) is assigned locally to authenticate update checks and remote configuration.</li>
+            <li><strong>Hardware Specifications:</strong> Device model, display dimensions, total RAM, battery percentage, processor architecture, and operating system version are processed solely to verify device compatibility and optimize rendering pipelines.</li>
+            <li><strong>Security Watchdog & Integrity Verification:</strong> The Application monitors execution environments for unauthorized package tampering, root/test-key environments, active debugging bridges (ADB), and virtual machine emulation to prevent malicious manipulation.</li>
+            <li><strong>Error Logging & Diagnostics:</strong> When a runtime exception occurs, technical crash diagnostics (error numbers, component identifiers, and device models) are transmitted to a secure backend to facilitate necessary software maintenance and stability updates.</li>
+            <li><strong>Installation Identifier:</strong> A non-personal, randomly generated unique identifier (UUID) is assigned locally to manage remote configuration checks and authorized service access.</li>
         </ul>
     </div>
 
-    <!-- Section 03 -->
+    <!-- Section 03: Machine Learning & Voice Processing -->
     <div class="section-card">
-        <h2><span class="num-badge">03</span> Intelligent AI & Voice Features</h2>
-        <p>Giovnex incorporates high-performance language and image processing engines:</p>
+        <h2><span class="num-badge">03</span> Machine Learning & Voice Processing</h2>
+        <p>Giovnex integrates artificial intelligence and natural language processing interfaces to deliver automated productivity features:</p>
         <ul>
-            <li><strong>Text & Web Summarization:</strong> Prompts you submit or webpage articles you summarize are transmitted via encrypted protocols to external neural network processors to generate responses.</li>
-            <li><strong>Voice Transcriptions:</strong> When using the voice microphone feature, your speech is converted to text locally or via standard system transcription and is not stored on voice-recording servers.</li>
-            <li><strong>Image Synthesis:</strong> Visual generation queries are executed dynamically on secure cloud renderers.</li>
+            <li><strong>Text Inquiries & Summaries:</strong> User-submitted text prompts and webpage article summaries are transmitted through encrypted protocols to external neural processing infrastructure to generate relevant responses. Users are advised not to submit sensitive credentials into interactive AI prompt fields.</li>
+            <li><strong>Voice Input:</strong> When voice input features are activated, speech recognition is processed locally or through standard operating system voice services. Audio recordings are not preserved, cataloged, or stored on audio-recording database servers.</li>
+            <li><strong>Image Synthesis:</strong> Visual generation queries are executed dynamically via external rendering interfaces without storing persistent identifying records.</li>
         </ul>
     </div>
 
-    <!-- Section 04 -->
+    <!-- Section 04: Local Storage, Incognito & Ad-Shield -->
     <div class="section-card">
-        <h2><span class="num-badge">04</span> Web Browsing & Local Storage</h2>
-        <p>Your web session data remains strictly under your control on your physical device:</p>
+        <h2><span class="num-badge">04</span> Local Storage, Incognito & Ad-Shield Engine</h2>
+        <p>User browsing information is stored locally on the physical client device and remains entirely under the user's jurisdiction:</p>
         <ul>
-            <li><strong>Bookmarks & History:</strong> Saved strictly into device-local encrypted database storage (TinyDB). They are never synced to commercial tracking networks.</li>
-            <li><strong>Incognito Mode:</strong> Enabling Incognito immediately isolates your browsing session and purges cookies, cache, web storage, and form records when deactivated.</li>
+            <li><strong>Client-Side Storage:</strong> Bookmarks, browsing records, and custom preferences are stored locally in device-level database storage (TinyDB). They are never mirrored or synced to commercial tracking servers.</li>
+            <li><strong>Incognito Mode:</strong> Activating Incognito Mode isolates active browsing sessions and automatically purges cached resources, form inputs, and session cookies upon session termination.</li>
             <li><strong>Ad-Shield Engine:</strong> An integrated script evaluation engine blocks intrusive tracker scripts, malicious redirects, and aggressive pop-ups.</li>
         </ul>
     </div>
 
-    <!-- Section 05 -->
+    <!-- Section 05: User Data Deletion Rights -->
     <div class="section-card">
-        <h2><span class="num-badge">05</span> Complete User Data Control</h2>
-        <p>Giovnex provides an immediate, one-click mechanism to wipe your footprints:</p>
+        <h2><span class="num-badge">05</span> Data Subject Rights & Deletion Mechanisms</h2>
+        <p>In accordance with global data protection frameworks (including GDPR, CCPA, and the Philippine Data Privacy Act of 2012), users maintain complete authority over their stored information:</p>
         <div class="highlight-box">
-            <strong>System Data Purge:</strong> Accessible directly inside the Settings Menu layout, this function instantly resets and wipes all local history, bookmarks, cached files, downloads list, and stored session preferences.
+            <strong>System Data Purge:</strong> Accessible directly within the Application's Settings menu, this function permanently wipes all local browsing records, saved bookmarks, cached data, download histories, and stored session preferences from the device with a single action.
         </div>
     </div>
 
-    <!-- Section 06 -->
+    <!-- Section 06: Runtime Device Permissions -->
     <div class="section-card">
-        <h2><span class="num-badge">06</span> Device Permissions</h2>
-        <p>Giovnex requests specific permissions on an as-needed basis strictly to power user-initiated actions:</p>
+        <h2><span class="num-badge">06</span> Device Permissions & Hardware Access</h2>
+        <p>Giovnex requests specific device permissions strictly when necessary to execute user-directed operations:</p>
         <ul>
-            <li><strong>Storage / Media:</strong> Required to save downloaded files, documents, and media to the device's shared storage.</li>
-            <li><strong>Microphone:</strong> Accessed only when actively triggering speech recognition for search or AI chats.</li>
-            <li><strong>Camera:</strong> Accessed only when launching the built-in QR / Barcode scanner utility.</li>
-            <li><strong>Foreground & Media Service:</strong> Powers continuous background music and video playback while the screen is locked or idle.</li>
+            <li><strong>Storage & Media Access:</strong> Utilized strictly to save user-downloaded files, media, and documents into the designated public Downloads directory.</li>
+            <li><strong>Microphone:</strong> Utilized exclusively during the active duration of user-initiated voice recognition for search queries or AI interactions.</li>
+            <li><strong>Camera:</strong> Utilized exclusively when the user opens the integrated QR / Barcode scanner utility to scan web links.</li>
+            <li><strong>Foreground & Media Service:</strong> Utilized to maintain continuous background audio playback while the device screen is locked or idle.</li>
         </ul>
     </div>
 
-    <!-- Section 07 -->
+    <!-- Section 07: Children's Online Privacy -->
     <div class="section-card">
-        <h2><span class="num-badge">07</span> Contact & Official Channels</h2>
-        <p>If you have any questions, suggestions, or feature requests, feel free to reach out directly to the developer:</p>
+        <h2><span class="num-badge">07</span> Protection of Children's Privacy</h2>
+        <p>Giovnex is a general-purpose browsing and utility application and is not directed at children under the age of 13 (or under the applicable age of digital consent in relevant jurisdictions). The Application does not knowingly collect or solicit personal identifiable information from children. If you believe that a minor has provided information to the Application, please contact the Developer immediately to facilitate prompt removal.</p>
+    </div>
+
+    <!-- Section 08: Contact & Data Subject Inquiries -->
+    <div class="section-card">
+        <h2><span class="num-badge">08</span> Contact & Data Privacy Inquiries</h2>
+        <p>If you have any questions, inquiries, or concerns regarding this Privacy Policy, your legal data rights, or our security practices, you may contact the Developer directly through official channels:</p>
         <ul>
-            <li><strong>Developer:</strong> Giovane Bang-ay (Giovnex)</li>
-            <li><strong>Official Contact Email:</strong> <a href="mailto:giovnex.app@gmail.com" style="color: var(--accent-cyan); text-decoration: none; font-weight: 600;">giovnex.app@gmail.com</a></li>
-            <li><strong>Official Channels:</strong> Follow our <a href="https://www.facebook.com/share/1FFbLrUybq/" target="_blank" rel="noopener noreferrer" style="color: var(--accent-cyan); text-decoration: none;">Facebook Page</a> and join our <a href="https://t.me/giovnex" target="_blank" rel="noopener noreferrer" style="color: var(--accent-cyan); text-decoration: none;">Telegram Channel</a> for announcements and updates.</li>
+            <li><strong>Developer / Data Controller:</strong> Giovane Bang-ay (Giovnex)</li>
+            <li><strong>Official Privacy & Support Email:</strong> <a href="mailto:giovnex.app@gmail.com" style="color: var(--accent-cyan); text-decoration: none; font-weight: 700;">giovnex.app@gmail.com</a></li>
+            <li><strong>Official Announcements:</strong> Join our <a href="https://t.me/giovnex" target="_blank" rel="noopener noreferrer" style="color: var(--accent-cyan); text-decoration: none;">Telegram Channel</a> and follow our <a href="https://www.facebook.com/share/1FFbLrUybq/" target="_blank" rel="noopener noreferrer" style="color: var(--accent-cyan); text-decoration: none;">Facebook Page</a> for official release logs.</li>
         </ul>
     </div>
 
@@ -537,6 +492,85 @@
     </footer>
 
 </div>
+
+<!-- 120 FPS CINEMATIC NEURAL NODE MOTION ENGINE -->
+<script>
+(function() {
+    const canvas = document.getElementById('neural-canvas');
+    const ctx = canvas.getContext('2d');
+    let width, height;
+    let particles = [];
+
+    function resize() {
+        width = canvas.width = window.innerWidth;
+        height = canvas.height = window.innerHeight;
+    }
+    window.addEventListener('resize', resize);
+    resize();
+
+    const particleCount = width < 600 ? 28 : 55;
+
+    class Particle {
+        constructor() {
+            this.x = Math.random() * width;
+            this.y = Math.random() * height;
+            this.vx = (Math.random() - 0.5) * 0.45;
+            this.vy = (Math.random() - 0.5) * 0.45;
+            this.radius = Math.random() * 1.8 + 1;
+        }
+        update() {
+            this.x += this.vx;
+            this.y += this.vy;
+            if (this.x < 0 || this.x > width) this.vx *= -1;
+            if (this.y < 0 || this.y > height) this.vy *= -1;
+        }
+        draw() {
+            ctx.beginPath();
+            ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+            ctx.fillStyle = 'rgba(0, 242, 254, 0.7)';
+            ctx.shadowBlur = 10;
+            ctx.shadowColor = '#00f2fe';
+            ctx.fill();
+        }
+    }
+
+    for (let i = 0; i < particleCount; i++) {
+        particles.push(new Particle());
+    }
+
+    function animate() {
+        ctx.clearRect(0, 0, width, height);
+
+        for (let i = 0; i < particles.length; i++) {
+            for (let j = i + 1; j < particles.length; j++) {
+                const dx = particles[i].x - particles[j].x;
+                const dy = particles[i].y - particles[j].y;
+                const dist = Math.sqrt(dx * dx + dy * dy);
+                const maxDist = width < 600 ? 95 : 135;
+
+                if (dist < maxDist) {
+                    ctx.beginPath();
+                    ctx.moveTo(particles[i].x, particles[i].y);
+                    ctx.lineTo(particles[j].x, particles[j].y);
+                    const alpha = (1 - dist / maxDist) * 0.28;
+                    ctx.strokeStyle = `rgba(0, 242, 254, ${alpha})`;
+                    ctx.lineWidth = 0.85;
+                    ctx.shadowBlur = 0;
+                    ctx.stroke();
+                }
+            }
+        }
+
+        particles.forEach(p => {
+            p.update();
+            p.draw();
+        });
+
+        requestAnimationFrame(animate);
+    }
+    requestAnimationFrame(animate);
+})();
+</script>
 
 </body>
 </html>
